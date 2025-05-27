@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -23,25 +24,23 @@ class UserController extends Controller
     public function edit(string $id){
         $id = (int)$id;
         $user = User::find($id);
-        return view('user.update', ['data'=>$user]);
+        //var_dump($user);
+        return view('user.update', ['user'=>$user]);
     }
 
     public function show(string $id){
         $id = (int)$id;
         $user = User::find($id);
-        return view('user.show', ['data'=>$user]);
+        return view('user.show', ['user'=>$user]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request){
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -49,25 +48,26 @@ class UserController extends Controller
         return redirect(route('dashboard', absolute: false));
     }
 
-    /**
-     * Display the specified resource.
-     */
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request, string $id){
+        $id = (int)$id;
+        $user = User::findOrFail($id);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
+        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if (!empty($data['password'])) {
+            $user->password = Hash::make($request['password']);
+        }
+        $user->save();
+        return redirect(route('dashboard', absolute: false));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
-    
+    public function destroy(Request $request){
+        $id = (int)$request->id;
+        User::destroy($id);
+        return redirect(route('dashboard', absolute: false));
+    }   
 }
