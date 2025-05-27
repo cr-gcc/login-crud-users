@@ -14,12 +14,12 @@ Route::get('/dashboard', [UserController::class, 'index'])
 
 Route::middleware('auth')->group(function () {
     //  Users
-        Route::post('/user/add', [UserController::class, 'add'])->name('profile.add');
-        Route::post('/user', [UserController::class, 'store'])->name('profile.store');
-        Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('profile.edit');
-        Route::patch('/user', [UserController::class, 'update'])->name('profile.update');
-        Route::get('/user/{id}', [UserController::class, 'show'])->name('profile.show');
-        Route::delete('/user', [UserController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+        Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
+        Route::post('/user', [UserController::class, 'store'])->name('user.store');
+        Route::patch('/user', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/user', [UserController::class, 'destroy'])->name('user.destroy');
     //  Profile
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

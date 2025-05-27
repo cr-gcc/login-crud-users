@@ -12,10 +12,10 @@
                         <thead>
                             <tr>
                                 <th colspan="3" class="text-right border-b p-4 pt-0 pb-3 dark:border-slate-600">
-                                    <button class="gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                                    <a href="{{route('user.create')}}" class="gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
                                         <i class="fa-solid fa-user-plus"></i>
                                         <span>Agregar</span>
-                                    </button>
+                                    </a>
                                 </th>
                             </tr>
                             <tr>
@@ -35,14 +35,14 @@
                                     </td>
                                     <td class="p-4 text-slate-500 border-b border-slate-100 dark:border-slate-700 dark:text-slate-400">
                                         <div class="grid col">
-                                            <button class="mb-1 gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                                            <a href="{{route('user.edit', ['id'=>$user['id']])}}" class="mb-1 gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                                 <span>Editar</span>
-                                            </button>
-                                            <button class="mb-1 gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                                            </a>
+                                            <a href="{{route('user.show', ['id'=>$user['id']])}}" class="mb-1 gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
                                                 <i class="fa-solid fa-eye"></i>
                                                 <span>Ver</span>
-                                            </button>
+                                            </a>
                                             <button class="gap-1 rounded-lg px-5 pb-1 pt-1.5 font-small leading-normal text-xs text-center text-neutral-900  shadow-light-3 transition duration-150 ease-in-out  hover:bg-neutral-200 hover:shadow-light-2  focus:bg-neutral-200 focus:shadow-light-2 focus:outline-none focus:ring-0  active:bg-neutral-200 active:shadow-light-2  motion-reduce:transition-none bg-neutral-100  dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
                                                 <i class="fa-solid fa-trash"></i>
                                                 <span>Eliminar</span>
