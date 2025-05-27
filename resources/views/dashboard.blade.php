@@ -25,8 +25,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                @foreach ($data as $user)
+                            @foreach ($data as $user)
+                                <tr>
                                     <td class="p-4 text-center text-slate-500 border-b border-slate-100 dark:border-slate-700 dark:text-slate-400">
                                         {{ $user['name'] }}
                                     </td>
@@ -49,8 +49,8 @@
                                             </button>
                                         </div>
                                     </td>
-                                @endforeach
-                            </tr>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
